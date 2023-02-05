@@ -1,0 +1,18 @@
+name: CI|CD Calculator
+
+on:
+  push:
+    branches:
+     - "master"
+  workflow_dispath:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: docker build -t calculator:1.0 .           
