@@ -54,8 +54,11 @@ jobs:
         run: docker pull ${{ env.image_name }}
       
       - name: Deploy container
-        run:  docker run -p 8080:3000 -itd ${{ env.image_name }}
+        run:  docker run -p 8080:3000 -itd --name=calculator ${{ env.image_name }}
       
-      - name: Validate
-        run: docker ps
+      - name: Extract build from container
+        run: docker cp calculator:/app/build /app
+      
+      - name: validate
+        run: ls -lha
   
