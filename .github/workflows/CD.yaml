@@ -57,7 +57,7 @@ jobs:
         run:  docker run -p 8080:3000 -itd --name=calculator ${{ env.image_name }}
       
       - name: Extract build from container
-        run: docker cp calculator:/app/build /app
+        run: sudo docker cp calculator:/app/build /app
       
       - name: validate
         run: ls -lha
