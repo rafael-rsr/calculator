@@ -62,6 +62,5 @@ jobs:
         run: sudo docker cp calculator:/app/build /app
       
       - name: validate
-        run: cd app /
-             ls -lha
+        run: cd app && ls -lha
   
